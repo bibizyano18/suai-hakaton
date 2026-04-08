@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 300px;
+
+    margin: 0 auto;
+}
+
+.login-button {
+    height: 40px;
+    width: fit-content;
+    align-self: center;
+}
