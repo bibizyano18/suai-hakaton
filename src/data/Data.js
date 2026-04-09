@@ -97,7 +97,8 @@ export const initData = () => {
 				category: "drinks",
 				ingredients: [
 					{ productName: "Кофе", qty: 18 },
-					{ productName: "Молоко", qty: 220 }
+					{ productName: "Молоко", qty: 220 },
+					{productName: "Сливки", qty: 80 }
 				],
 				available: true,
 				weight: "300мл"
@@ -105,10 +106,72 @@ export const initData = () => {
 		];
 		localStorage.setItem(KEYS.MENU, JSON.stringify(menu));
 	}
+	// Инициализация склада с полной структурой
 	if (!localStorage.getItem(KEYS.STOCK)) {
 		const stock = [
-			{ productName: 'Кофе', quantity: 400 },
-			{ productName: 'Молоко', quantity: 4000 },
+			{
+				supply_id: 1,
+				productName: "Курица",
+				supply_quantity: 10000,
+				quantity: 1500,
+				delivery_date: "2026-04-08",
+				expiry_date: "2026-04-10",
+				min_percent: 15
+			},
+			{
+				supply_id: 2,
+				productName: "Лаваш",
+				supply_quantity: 300,
+				quantity: 60,
+				delivery_date: "2026-04-07",
+				expiry_date: "2026-04-12",
+				min_percent: 20
+			},
+			{
+				supply_id: 3,
+				productName: "Сырный лаваш",
+				supply_quantity: 150,
+				quantity: 20,
+				delivery_date: "2026-04-07",
+				expiry_date: "2026-04-11",
+				min_percent: 20
+			},
+			{
+				supply_id: 4,
+				productName: "Кофе",
+				supply_quantity: 2000,
+				quantity: 200,
+				delivery_date: "2026-04-08",
+				expiry_date: "2026-04-10",
+				min_percent: 15
+			},
+			{
+				supply_id: 5,
+				productName: "Соус",
+				supply_quantity: 3000,
+				quantity: 800,
+				delivery_date: "2026-04-06",
+				expiry_date: "2026-04-18",
+				min_percent: 15
+			},
+			{
+				supply_id: 6,
+				productName: "Молоко",
+				supply_quantity: 2000,
+				quantity: 500,
+				delivery_date: "2026-04-06",
+				expiry_date: "2026-04-18",
+				min_percent: 15
+			},
+			{
+				supply_id: 7,
+				productName: "Сыр",
+				supply_quantity: 2000,
+				quantity: 500,
+				delivery_date: "2026-04-06",
+				expiry_date: "2026-04-18",
+				min_percent: 15
+			}
 		];
 		localStorage.setItem(KEYS.STOCK, JSON.stringify(stock));
 	}
