@@ -296,3 +296,63 @@
         font-size: 14px;
     }
 }
+
+/* Способы оплаты */
+.payment-methods {
+    margin: 20px 0;
+    padding: 16px 0;
+
+}
+
+.payment-methods h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.payment-options {
+    display: flex;
+    gap: 12px;
+}
+
+.payment-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #f8f8f8;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.payment-option:hover {
+    background: #f0f0f0;
+}
+
+.payment-option.selected {
+    background: #fff;
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.payment-option input[type="radio"] {
+    display: none;
+}
+
+.payment-icon {
+    font-size: 24px;
+}
+
+.payment-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.payment-option.selected .payment-label {
+    color: #007bff;
+}

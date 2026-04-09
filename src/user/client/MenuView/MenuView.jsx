@@ -4,6 +4,7 @@ import './MenuView.css'
 
 export const MenuView = ({ menu, cart, onAddToCart, onRemoveFromCart, onUpdateQty, onCheckout, getTotal }) => {
 	const [activeCategory, setActiveCategory] = useState('all');
+	const [paymentMethod, setPaymentMethod] = useState('card');
 
 	// Категории
 	const categories = [
@@ -156,6 +157,35 @@ export const MenuView = ({ menu, cart, onAddToCart, onRemoveFromCart, onUpdateQt
 										</div>
 									);
 								})}
+							</div>
+							{/* Выбор способа оплаты */}
+							<div className="payment-methods">
+								<h4>Способ оплаты</h4>
+								<div className="payment-options">
+									<label className={`payment-option ${paymentMethod === 'card' ? 'selected' : ''}`}>
+										<input
+											type="radio"
+											name="payment"
+											value="card"
+											checked={paymentMethod === 'card'}
+											onChange={() => setPaymentMethod('card')}
+										/>
+										<span className="payment-icon">💳</span>
+										<span className="payment-label">Карта</span>
+									</label>
+
+									<label className={`payment-option ${paymentMethod === 'sbp' ? 'selected' : ''}`}>
+										<input
+											type="radio"
+											name="payment"
+											value="sbp"
+											checked={paymentMethod === 'sbp'}
+											onChange={() => setPaymentMethod('sbp')}
+										/>
+										<span className="payment-icon">📱</span>
+										<span className="payment-label">СБП</span>
+									</label>
+								</div>
 							</div>
 							<div className="cart-total">
 								<span>Итого:</span>
