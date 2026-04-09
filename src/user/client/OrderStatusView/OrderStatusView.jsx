@@ -20,15 +20,6 @@ export const OrderStatusView = ({ order, onBackToMenu }) => {
 		return () => clearInterval(interval);
 	}, [order.id]);
 
-	const getStatusText = (status) => {
-		const statusMap = {
-			'accepted': 'Готовится',
-			'ready': 'Готов к выдаче',
-			'completed': 'Выдан',
-			'cancelled': 'Отменён'
-		};
-		return statusMap[status] || status;
-	};
 
 	const steps = ['accepted', 'ready', 'completed'];
 	const currentStepIndex = steps.indexOf(currentOrder.status);
@@ -69,7 +60,7 @@ export const OrderStatusView = ({ order, onBackToMenu }) => {
 				<h3>Состав заказа:</h3>
 				<ul>
 					{currentOrder.items.map((item, idx) => (
-						<li key={idx}>{item.name} x {item.qty} — {item.price * item.qty} ₽</li>
+						<li key={idx}>{item.name} x {item.quantity} — {item.price * item.quantity} ₽</li>
 					))}
 				</ul>
 				<p className="order-total">Итого: {currentOrder.total} ₽</p>
@@ -80,4 +71,13 @@ export const OrderStatusView = ({ order, onBackToMenu }) => {
 			</button>
 		</div>
 	);
+};
+export const getStatusText = (status) => {
+	const statusMap = {
+		'accepted': 'Готовится',
+		'ready': 'Готов к выдаче',
+		'completed': 'Выдан',
+		'cancelled': 'Отменён'
+	};
+	return statusMap[status] || status;
 };

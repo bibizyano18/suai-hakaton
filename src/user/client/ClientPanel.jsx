@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import {MenuView} from "./MenuView/MenuView.jsx";
-import {OrderStatusView} from "./OrderStatusView/OrderStatusView.jsx";
-import { getData, isMenuItemAvailable, consumeIngredients, createOrder } from '../../data/Data.js';
+import {getStatusText, OrderStatusView} from "./OrderStatusView/OrderStatusView.jsx";
+import {getData, isMenuItemAvailable, consumeIngredients, createOrder, getCurrentUser} from '../../data/Data.js';
 import './ClientPanel.css'
-
 
 
 export const ClientPanel = ({ user }) => {
@@ -11,15 +10,47 @@ export const ClientPanel = ({ user }) => {
 	const [cart, setCart] = useState([]);
 	const [currentView, setCurrentView] = useState('menu'); // 'menu' или 'status'
 	const [currentOrder, setCurrentOrder] = useState(null);
+	const [activeOrderNotification, setActiveOrderNotification] = useState(null);
 
-	useEffect(() => {
-		loadMenu();
-	}, []);
+	const checkActiveOrders = () => {
+		const orders = getData('orders');
+		const currentUser = getCurrentUser();
+
+		if (!currentUser) return;
+
+		// Ищем активные заказы (не completed и не cancelled)
+		const activeOrders = orders.filter(order =>
+			order.user.phone === currentUser.phone &&
+			order.status !== 'completed' &&
+			order.status !== 'cancelled'
+		);
+
+		if (activeOrders.length > 0) {
+			// Берём самый свежий активный заказ
+			const latestOrder = activeOrders.sort((a, b) =>
+				new Date(b.createdAt) - new Date(a.createdAt)
+			)[0];
+			setActiveOrderNotification(latestOrder);
+		}
+	};
+
+	const handleGoToOrder = () => {
+		setCurrentOrder(activeOrderNotification);
+		setCurrentView('status');
+		setActiveOrderNotification(null); // Скрываем уведомление
+	};
 
 	const loadMenu = () => {
 		const menuData = getData('menu');
 		setMenu(menuData);
 	};
+
+	useEffect(() => {
+		loadMenu();
+		checkActiveOrders();
+	}, []);
+
+
 
 	const addToCart = (menuItem) => {
 		const existing = cart.find(item => item.menuId === menuItem.id);
@@ -74,7 +105,7 @@ export const ClientPanel = ({ user }) => {
 
 		// Создаём заказ
 		const total = getTotal();
-		const order = createOrder(user.phone, cart, total);
+		const order = createOrder(user, cart, total);
 
 		// Очищаем корзину и переключаемся на отслеживание
 		setCart([]);
@@ -84,11 +115,32 @@ export const ClientPanel = ({ user }) => {
 
 	const handleBackToMenu = () => {
 		setCurrentView('menu');
+		checkActiveOrders();
 		setCurrentOrder(null);
 	};
 
 	return (
 		<div className="client-panel">
+			{/* Уведомление об активном заказе */}
+			{activeOrderNotification && currentView === 'menu' && (
+				<div className="active-order-notification">
+					<div className="notification-content">
+						<div className="notification-icon">🍽️</div>
+						<div className="notification-text">
+							<strong>У вас есть активный заказ</strong>
+							<p>Заказ {activeOrderNotification.user.name} — {getStatusText(activeOrderNotification.status)}</p>
+						</div>
+					</div>
+					<div className="notification-actions">
+						<button className="notification-btn primary" onClick={handleGoToOrder}>
+							Отслеживать
+						</button>
+						{/*<button className="notification-btn secondary" onClick={handleDismissNotification}>*/}
+						{/*	✕*/}
+						{/*</button>*/}
+					</div>
+				</div>
+			)}
 			{currentView === 'menu' ? (
 				<MenuView
 					menu={menu}

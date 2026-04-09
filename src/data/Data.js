@@ -189,7 +189,7 @@ export const consumeIngredients = (orderItems) => {
 };
 
 // Создание заказа
-export const createOrder = (userId, cartItems, total) => {
+export const createOrder = (user, cartItems, total) => {
 	const menu = getData(KEYS.MENU);
 	// Формируем items с названиями и ценами для истории
 	const items = cartItems.map(item => {
@@ -205,7 +205,7 @@ export const createOrder = (userId, cartItems, total) => {
 	const orders = getData(KEYS.ORDERS);
 	const newOrder = {
 		id: Date.now(),
-		userId,
+		user,
 		status: 'accepted', // готовится
 		items,
 		total,
