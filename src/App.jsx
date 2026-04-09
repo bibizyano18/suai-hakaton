@@ -36,7 +36,7 @@ const App = () => {
                 </div>
             </header>
             <main>
-                {/*{role === 'client' && <ClientPanel user={user} />}*/}
+                {role === 'client' && <ClientPanel user={user} />}
                 {/*{role === 'cook' && <CookPanel />}*/}
                 {/*{role === 'quality' && <QualityPanel />}*/}
                 {/*{role === 'admin' && <AdminPanel />}*/}

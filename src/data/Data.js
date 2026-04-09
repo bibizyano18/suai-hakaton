@@ -9,9 +9,99 @@ const KEYS = {
 export const initData = () => {
 	if (!localStorage.getItem(KEYS.MENU)) {
 		const menu = [
-			{ id: 1, name: 'Эспрессо', price: 150, ingredients: [{ productName: 'Кофе', qty: 18 }] },
-			{ id: 2, name: 'Капучино', price: 200, ingredients: [{ productName: 'Кофе', qty: 18 }, { productName: 'Молоко', qty: 200 }] },
-			{ id: 3, name: 'Латте', price: 220, ingredients: [{ productName: 'Кофе', qty: 18 }, { productName: 'Молоко', qty: 250 }] },
+			{
+				id: 1,
+				name: "Шаверма классическая",
+				price: 260,
+				current_price: 260,
+				category: "shawerma",
+				ingredients: [
+					{ productName: "Курица", qty: 150 },
+					{ productName: "Лаваш", qty: 1 },
+					{ productName: "Соус", qty: 30 }
+				],
+				available: true,
+				weight: "320г"
+			},
+			{
+				id: 2,
+				name: "Шаверма сырная",
+				price: 300,
+				current_price: 290,
+				category: "shawerma",
+				ingredients: [
+					{ productName: "Курица", qty: 150 },
+					{ productName: "Лаваш", qty: 1 },
+					{ productName: "Сыр", qty: 40 },
+					{ productName: "Соус", qty: 30 }
+				],
+				available: true,
+				weight: "340г"
+			},
+			{
+				id: 7,
+				name: "Шаверма BBQ",
+				price: 310,
+				current_price: 295,
+				ingredients: [
+					{ productName: "Курица", qty: 150 },
+					{ productName: "Соус", qty: 30 },
+					{ productName: "Лаваш", qty: 1 },
+					{ productName: "Бекон", qty: 5 }
+				],
+				available: true,
+				weight: "340г"
+			},
+			{
+				id: 3,
+				name: "Картофель фри",
+				price: 150,
+				current_price: 150,
+				category: "snacks",
+				ingredients: [
+					{ productName: "Картофель", qty: 120 }
+				],
+				available: true,
+				weight: "130г"
+			},
+			{
+				id: 4,
+				name: "Наггетсы",
+				price: 170,
+				current_price: 170,
+				category: "snacks",
+				ingredients: [
+					{ productName: "Курица", qty: 120 }
+				],
+				available: true,
+				weight: "140г"
+			},
+			{
+				id: 5,
+				name: "Капучино",
+				price: 190,
+				current_price: 175,
+				category: "drinks",
+				ingredients: [
+					{ productName: "Кофе", qty: 18 },
+					{ productName: "Молоко", qty: 180 }
+				],
+				available: true,
+				weight: "250мл"
+			},
+			{
+				id: 6,
+				name: "Латте",
+				price: 210,
+				current_price: 190,
+				category: "drinks",
+				ingredients: [
+					{ productName: "Кофе", qty: 18 },
+					{ productName: "Молоко", qty: 220 }
+				],
+				available: true,
+				weight: "300мл"
+			}
 		];
 		localStorage.setItem(KEYS.MENU, JSON.stringify(menu));
 	}
@@ -107,7 +197,7 @@ export const createOrder = (userId, cartItems, total) => {
 		return {
 			menuId: item.menuId,
 			name: menuItem.name,
-			qty: item.qty,
+			quantity: item.qty,
 			price: menuItem.price,
 		};
 	});
