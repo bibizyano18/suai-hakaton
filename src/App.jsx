@@ -3,6 +3,7 @@ import {initData, getCurrentUser, logout} from './data/Data.js';
 import './App.css'
 import {useEffect, useState} from "react";
 import {ClientPanel} from "./user/client/ClientPanel.jsx";
+import {CookPanel} from "./cook/CookPanel.jsx";
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -37,7 +38,7 @@ const App = () => {
             </header>
             <main>
                 {role === 'client' && <ClientPanel user={user} />}
-                {/*{role === 'cook' && <CookPanel />}*/}
+                {role === 'cook' && <CookPanel />}
                 {/*{role === 'quality' && <QualityPanel />}*/}
                 {/*{role === 'admin' && <AdminPanel />}*/}
             </main>

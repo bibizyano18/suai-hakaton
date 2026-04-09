@@ -217,15 +217,15 @@ export const createOrder = (user, cartItems, total) => {
 };
 
 // Обновление статуса заказа
-// export const updateOrderStatus = (orderId, status) => {
-// 	const orders = getData(KEYS.ORDERS);
-// 	const order = orders.find(o => o.id === orderId);
-// 	if (order) {
-// 		order.status = status;
-// 		setData(KEYS.ORDERS, orders);
-// 	}
-// 	return order;
-// };
+export const updateOrderStatus = (orderId, status) => {
+	const orders = getData(KEYS.ORDERS);
+	const order = orders.find(o => o.id === orderId);
+	if (order) {
+		order.status = status;
+		setData(KEYS.ORDERS, orders);
+	}
+	return order;
+};
 
 // Получение заказов по статусу
 export const getOrdersByStatus = (status) => {
@@ -234,14 +234,14 @@ export const getOrdersByStatus = (status) => {
 };
 
 // Получение всех заказов
-// export const getAllOrders = () => getData(KEYS.ORDERS);
+export const getAllOrders = () => getData(KEYS.ORDERS);
 
 // Обновление остатка продукта (админ)
-// export const updateStockQuantity = (productName, newQuantity) => {
-// 	const stock = getData(KEYS.STOCK);
-// 	const item = stock.find(s => s.productName === productName);
-// 	if (item) {
-// 		item.quantity = newQuantity;
-// 		setData(KEYS.STOCK, stock);
-// 	}
-// };
+export const updateStockQuantity = (productName, newQuantity) => {
+	const stock = getData(KEYS.STOCK);
+	const item = stock.find(s => s.productName === productName);
+	if (item) {
+		item.quantity = newQuantity;
+		setData(KEYS.STOCK, stock);
+	}
+};

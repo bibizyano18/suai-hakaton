@@ -1,0 +1,265 @@
+.cook-panel {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cook-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.cook-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #1a1a1a;
+}
+
+.queue-stats {
+    background: #f0f0f0;
+    padding: 8px 16px;
+    border-radius: 30px;
+}
+
+.queue-count {
+    font-weight: 600;
+    color: #666;
+}
+
+/* Пустая очередь */
+.empty-queue {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-queue h3 {
+    margin: 0 0 8px 0;
+    color: #1a1a1a;
+}
+
+.empty-queue p {
+    margin: 0;
+    color: #999;
+}
+
+/* Очередь заказов */
+.orders-queue {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Карточка заказа */
+.cook-order-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f0f0;
+    transition: all 0.2s;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cook-order-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.order-number {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.order-id {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.order-time {
+    font-size: 14px;
+    color: #999;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.new {
+    background: #ff4757;
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.badge.waiting {
+    background: #ffa502;
+    color: white;
+}
+
+/* Тело заказа */
+.order-body {
+    margin-bottom: 16px;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cook-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.item-info {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.item-qty {
+    font-size: 18px;
+    font-weight: 700;
+    color: #007bff;
+    min-width: 40px;
+}
+
+.item-name {
+    font-size: 16px;
+    color: #333;
+}
+
+.item-total {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Футер заказа */
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #f5f5f5;
+}
+
+.order-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.total-items {
+    color: #666;
+    font-size: 14px;
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.ready-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ready-btn:hover:not(:disabled) {
+    background: #45a049;
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.ready-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-icon {
+    font-size: 18px;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .cook-panel {
+        padding: 12px;
+    }
+
+    .cook-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .cook-order-card {
+        padding: 16px;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .ready-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .order-meta {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

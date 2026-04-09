@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {getData} from "../../../data/Data.js";
+import "./OrderStatusView.css"
 
 export const OrderStatusView = ({ order, onBackToMenu }) => {
 	const [currentOrder, setCurrentOrder] = useState(order);
@@ -27,7 +28,7 @@ export const OrderStatusView = ({ order, onBackToMenu }) => {
 
 	return (
 		<div className="order-status">
-			<h2>Заказ #{currentOrder.id}</h2>
+			<h2>Заказ # {currentOrder.id} {currentOrder.user.name}</h2>
 
 			{!isCancelled ? (
 				<div className="status-steps">
