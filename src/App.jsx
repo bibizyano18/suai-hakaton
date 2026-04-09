@@ -4,6 +4,7 @@ import './App.css'
 import {useEffect, useState} from "react";
 import {ClientPanel} from "./user/client/ClientPanel.jsx";
 import {CookPanel} from "./cook/CookPanel.jsx";
+import {QualityPanel} from "./quality/QualityPanel.jsx";
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -39,7 +40,7 @@ const App = () => {
             <main>
                 {role === 'client' && <ClientPanel user={user} />}
                 {role === 'cook' && <CookPanel />}
-                {/*{role === 'quality' && <QualityPanel />}*/}
+                {role === 'quality' && <QualityPanel />}
                 {/*{role === 'admin' && <AdminPanel />}*/}
             </main>
         </div>

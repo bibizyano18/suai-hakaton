@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import {MenuView} from "./MenuView/MenuView.jsx";
 import {getStatusText, OrderStatusView} from "./OrderStatusView/OrderStatusView.jsx";
-import {getData, isMenuItemAvailable, consumeIngredients, createOrder, getCurrentUser} from '../../data/Data.js';
+import {
+	getData,
+	isMenuItemAvailable,
+	consumeIngredients,
+	createOrder,
+	getCurrentUser,
+	updateOrderStatus
+} from '../../data/Data.js';
 import './ClientPanel.css'
 
 
@@ -18,11 +25,9 @@ export const ClientPanel = ({ user }) => {
 
 		if (!currentUser) return;
 
-		// Ищем активные заказы (не completed и не cancelled)
+		// ищем заказ пользователя
 		const activeOrders = orders.filter(order =>
-			order.user.phone === currentUser.phone &&
-			order.status !== 'completed' &&
-			order.status !== 'cancelled'
+			order.user.phone === currentUser.phone && order.status !== "cancelled"
 		);
 
 		if (activeOrders.length > 0) {
@@ -119,6 +124,10 @@ export const ClientPanel = ({ user }) => {
 		setCurrentOrder(null);
 	};
 
+	function handleDismissNotification() {
+		updateOrderStatus(activeOrderNotification.id, 'cancelled');
+		setActiveOrderNotification(null);
+	}
 	return (
 		<div className="client-panel">
 			{/* Уведомление об активном заказе */}
@@ -135,9 +144,12 @@ export const ClientPanel = ({ user }) => {
 						<button className="notification-btn primary" onClick={handleGoToOrder}>
 							Отслеживать
 						</button>
-						{/*<button className="notification-btn secondary" onClick={handleDismissNotification}>*/}
-						{/*	✕*/}
-						{/*</button>*/}
+						{activeOrderNotification.status === "cancelled" || activeOrderNotification.status === "completed" && (
+							<button className="notification-btn secondary" onClick={handleDismissNotification}>
+								✕
+							</button>
+						)}
+
 					</div>
 				</div>
 			)}

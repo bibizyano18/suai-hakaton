@@ -107,8 +107,8 @@ export const initData = () => {
 	}
 	if (!localStorage.getItem(KEYS.STOCK)) {
 		const stock = [
-			{ productName: 'Кофе', quantity: 1000 },
-			{ productName: 'Молоко', quantity: 5000 },
+			{ productName: 'Кофе', quantity: 400 },
+			{ productName: 'Молоко', quantity: 4000 },
 		];
 		localStorage.setItem(KEYS.STOCK, JSON.stringify(stock));
 	}
