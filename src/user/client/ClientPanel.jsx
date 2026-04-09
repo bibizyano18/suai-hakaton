@@ -27,7 +27,7 @@ export const ClientPanel = ({ user }) => {
 
 		// ищем заказ пользователя
 		const activeOrders = orders.filter(order =>
-			order.user.phone === currentUser.phone && order.status !== "cancelled"
+			order.user.phone === currentUser.phone && order.status !== "done"
 		);
 
 		if (activeOrders.length > 0) {
@@ -125,7 +125,7 @@ export const ClientPanel = ({ user }) => {
 	};
 
 	function handleDismissNotification() {
-		updateOrderStatus(activeOrderNotification.id, 'cancelled');
+		updateOrderStatus(activeOrderNotification.id, 'done');
 		setActiveOrderNotification(null);
 	}
 	return (

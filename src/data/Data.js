@@ -226,6 +226,15 @@ export const updateOrderStatus = (orderId, status) => {
 	}
 	return order;
 };
+export const updateOrderDate = (orderId, date = new Date().toISOString()) => {
+	const orders = getData(KEYS.ORDERS);
+	const order = orders.find(o => o.id === orderId);
+	if (order) {
+		order.createdAt = date;
+		setData(KEYS.ORDERS, orders);
+	}
+	return order;
+}
 
 // Получение заказов по статусу
 export const getOrdersByStatus = (status) => {

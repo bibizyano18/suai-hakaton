@@ -12,10 +12,6 @@ export const OrderStatusView = ({ order, onBackToMenu }) => {
 			const updated = orders.find(o => o.id === order.id);
 			if (updated) {
 				setCurrentOrder(updated);
-				// Если заказ завершён или отменён, можно автоматически вернуться в меню
-				if (updated.status === 'completed' || updated.status === 'cancelled') {
-					// Опционально: показать сообщение и кнопку возврата
-				}
 			}
 		}, 2000);
 		return () => clearInterval(interval);
