@@ -45,7 +45,7 @@ export const initData = () => {
 				weight: "510г"
 			},
 			{
-				id: 2,
+				id: 8,
 				name: "Шаверма сырная",
 				price: 300,
 				src: shawermaImg,
