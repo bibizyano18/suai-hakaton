@@ -1,12 +1,61 @@
-.app-header {
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background: #FAF6F0;
+}
+
+.app {
+    min-height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.app-header {
+    background: #FFFFFF;
+    color: black;
+
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 50px;
-    background: white;
-    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.role-switcher {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.role-switcher button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.role-switcher button:hover {
+    background: #e0e0e0;
+}
+
+.role-switcher .active {
+    background: #383838;
+    color: white;
+}
+
+.role-switcher button:last-child {
+    background: #D1472F;
+    color: white;
+}
+
+.role-switcher button:last-child:hover {
+    background: #c9302c;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
 }

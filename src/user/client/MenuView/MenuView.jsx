@@ -46,7 +46,7 @@ export const MenuView = ({ menu, cart, onAddToCart, onRemoveFromCart, onUpdateQt
 		return (
 			<div key={item.id} className={`menu-card ${!available ? 'disabled' : ''}`}>
 				<div className="menu-card-image">
-					{/* Можно добавить <img src={item.image} alt={item.name} /> */}
+					<img src={item.src} alt={item.name} />
 				</div>
 				<div className="menu-card-content">
 					<h3>{item.name}</h3>

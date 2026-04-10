@@ -1,3 +1,7 @@
+import shawermaImg from '../assets/pita-stuffed-with-chicken-peppers 1-3.png'
+import shawermaImg2 from '../assets/pita-stuffed-with-chicken-peppers 1-2.png'
+import potatos from '../assets/potatos.png'
+// import shawermaImg1 from '../assets/shawer-stuff-1.png'
 const KEYS = {
 	USERS: 'users',
 	MENU: 'menu',
@@ -13,6 +17,7 @@ export const initData = () => {
 				id: 1,
 				name: "Шаверма классическая",
 				price: 260,
+				src: shawermaImg,
 				current_price: 260,
 				category: "shawerma",
 				ingredients: [
@@ -25,8 +30,24 @@ export const initData = () => {
 			},
 			{
 				id: 2,
+				name: "Шаверма двойная",
+				price: 390,
+				src: shawermaImg2,
+				current_price: 390,
+				category: "shawerma",
+				ingredients: [
+					{ productName: "Курица", qty: 150 },
+					{ productName: "Лаваш", qty: 1 },
+					{ productName: "Соус", qty: 30 }
+				],
+				available: true,
+				weight: "510г"
+			},
+			{
+				id: 2,
 				name: "Шаверма сырная",
 				price: 300,
+				src: shawermaImg,
 				current_price: 290,
 				category: "shawerma",
 				ingredients: [
@@ -42,6 +63,7 @@ export const initData = () => {
 				id: 7,
 				name: "Шаверма BBQ",
 				price: 310,
+				src: shawermaImg2,
 				current_price: 295,
 				ingredients: [
 					{ productName: "Курица", qty: 150 },
@@ -56,6 +78,7 @@ export const initData = () => {
 				id: 3,
 				name: "Картофель фри",
 				price: 150,
+				src: shawermaImg,
 				current_price: 150,
 				category: "snacks",
 				ingredients: [
@@ -66,12 +89,13 @@ export const initData = () => {
 			},
 			{
 				id: 4,
-				name: "Наггетсы",
-				price: 170,
+				name: "Картофель фри XL",
+				price: 310,
+				src: potatos,
 				current_price: 170,
 				category: "snacks",
 				ingredients: [
-					{ productName: "Курица", qty: 120 }
+					{ productName: "Картофель", qty: 210 }
 				],
 				available: true,
 				weight: "140г"
@@ -80,6 +104,7 @@ export const initData = () => {
 				id: 5,
 				name: "Капучино",
 				price: 190,
+				src: shawermaImg,
 				current_price: 175,
 				category: "drinks",
 				ingredients: [
@@ -93,6 +118,7 @@ export const initData = () => {
 				id: 6,
 				name: "Латте",
 				price: 210,
+				src: shawermaImg,
 				current_price: 190,
 				category: "drinks",
 				ingredients: [

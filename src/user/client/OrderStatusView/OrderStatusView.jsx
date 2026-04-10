@@ -26,7 +26,7 @@ export const OrderStatusView = ({ order, onBackToMenu }) => {
 		<div className="order-status">
 			<h2>Заказ # {currentOrder.id} {currentOrder.user.name}</h2>
 
-			{!isCancelled ? (
+
 				<div className="status-steps">
 					<div className={`step ${currentStepIndex >= 0 ? 'active' : ''}`}>
 						<span className="step-number">1</span>
@@ -36,16 +36,21 @@ export const OrderStatusView = ({ order, onBackToMenu }) => {
 						<span className="step-number">2</span>
 						<span className="step-label">Готов к выдаче</span>
 					</div>
-					<div className={`step ${currentStepIndex >= 2 ? 'active' : ''}`}>
-						<span className="step-number">3</span>
-						<span className="step-label">Выдан</span>
-					</div>
+					{!isCancelled ? (
+						<div className={`step ${currentStepIndex >= 2 ? 'active' : ''}`}>
+							<span className="step-number">3</span>
+							<span className="step-label">Выдан</span>
+						</div>
+					) : (
+						<div className="step cancelled-step">
+							<span className="step-number">3</span>
+							<span className="step-label">Отменён</span>
+						</div>
+					)}
 				</div>
-			) : (
-				<div className="cancelled-message">
-					<p>❌ Заказ отменён. Пожалуйста, подойдите к кассе.</p>
-				</div>
-			)}
+
+
+
 
 			{currentOrder.status === 'ready' && (
 				<div className="ready-notification">
