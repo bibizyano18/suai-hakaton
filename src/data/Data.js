@@ -1,7 +1,8 @@
 import shawermaImg from '../assets/pita-stuffed-with-chicken-peppers 1-3.png'
 import shawermaImg2 from '../assets/pita-stuffed-with-chicken-peppers 1-2.png'
 import potatos from '../assets/potatos.png'
-// import shawermaImg1 from '../assets/shawer-stuff-1.png'
+import coffe1 from '../assets/coffe1.png'
+import coffe2 from '../assets/coffe2.png'
 const KEYS = {
 	USERS: 'users',
 	MENU: 'menu',
@@ -78,7 +79,7 @@ export const initData = () => {
 				id: 3,
 				name: "Картофель фри",
 				price: 150,
-				src: shawermaImg,
+				src: potatos,
 				current_price: 150,
 				category: "snacks",
 				ingredients: [
@@ -104,7 +105,7 @@ export const initData = () => {
 				id: 5,
 				name: "Капучино",
 				price: 190,
-				src: shawermaImg,
+				src: coffe1,
 				current_price: 175,
 				category: "drinks",
 				ingredients: [
@@ -118,7 +119,7 @@ export const initData = () => {
 				id: 6,
 				name: "Латте",
 				price: 210,
-				src: shawermaImg,
+				src: coffe2,
 				current_price: 190,
 				category: "drinks",
 				ingredients: [

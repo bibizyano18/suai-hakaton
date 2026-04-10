@@ -6,6 +6,7 @@ import {ClientPanel} from "./user/client/ClientPanel.jsx";
 import {CookPanel} from "./cook/CookPanel.jsx";
 import {QualityPanel} from "./quality/QualityPanel.jsx";
 import {AdminPanel} from "./admin/AdminPanel.jsx";
+import logo from './assets/logo.svg'
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -29,8 +30,11 @@ const App = () => {
     return (
         <div className="app">
             <header className="app-header">
-                <div>Кофейня NEO SHAVA | {user.phone} | {user.name}</div> {/*шапка*/}
+                <div>
+                    <img src={logo} alt={'logo'} className="logo" />
+                </div>
                 <div className="role-switcher">
+                    номер телефона: {user.phone} имя: {user.name}
                     <button onClick={() => setRole('client')} className={role === 'client' ? 'active' : ''}>Клиент</button>
                     <button onClick={() => setRole('cook')} className={role === 'cook' ? 'active' : ''}>Повар</button>
                     <button onClick={() => setRole('quality')} className={role === 'quality' ? 'active' : ''}>Пушистый</button>

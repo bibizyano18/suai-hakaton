@@ -105,7 +105,7 @@
     border-radius: 30px;
     font-size: 13px;
     font-weight: 600;
-    background: #4CAF50;
+    background: #78A84A;
     color: white;
 }
 
@@ -220,12 +220,12 @@
 }
 
 .complete-btn {
-    background: #4CAF50;
+    background: #78A84A;
     color: white;
 }
 
 .complete-btn:hover:not(:disabled) {
-    background: #45a049;
+    background: #78A84A;
     transform: scale(1.02);
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }

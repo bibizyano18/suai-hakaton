@@ -119,7 +119,6 @@ export const MenuView = ({ menu, cart, onAddToCart, onRemoveFromCart, onUpdateQt
 					<h3>Корзина</h3>
 					{cart.length === 0 ? (
 						<div className="cart-empty">
-							<p>🛒</p>
 							<p>Ваша корзина пуста</p>
 						</div>
 					) : (

@@ -116,7 +116,6 @@ export const QualityPanel = () => {
 					<h2>Отдел качества</h2>
 				</div>
 				<div className="empty-queue">
-					<div className="empty-icon">✅</div>
 					<h3>Нет готовых заказов</h3>
 					<p>Заказы, готовые к выдаче, появятся здесь</p>
 				</div>
@@ -141,7 +140,7 @@ export const QualityPanel = () => {
 										<span className="order-time">{formatTime(order.createdAt)}</span>
 									</div>
 									<div className={`order-status-badge ${hasProblems ? 'has-problems' : ''}`}>
-										{hasProblems ? '⚠️ Есть проблемы' : '✅ Готов'}
+										{hasProblems ? 'Есть проблемы' : 'Готов'}
 									</div>
 								</div>
 
@@ -156,7 +155,7 @@ export const QualityPanel = () => {
 													onClick={() => toggleProblemItem(order.id, idx)}
 												>
 													<div className="item-checkbox">
-														{isProblem ? '❌' : '⬜'}
+														{isProblem ? 'x' : 'o'}
 													</div>
 													<div className="item-info">
 														<span className="item-name">{item.name}</span>
@@ -174,7 +173,7 @@ export const QualityPanel = () => {
 								<div className="order-footer">
 									<div className="order-meta">
                   <span className="total-items">
-                    🛒 {order.items.reduce((sum, i) => sum + i.quantity, 0)} позиций
+                    {order.items.reduce((sum, i) => sum + i.quantity, 0)} позиций
                   </span>
 										<span className="total-price">{order.total} ₽</span>
 									</div>
@@ -185,7 +184,6 @@ export const QualityPanel = () => {
 											disabled={loading}
 											title="Выдать заказ"
 										>
-											<span className="btn-icon">✅</span>
 											Выдать
 										</button>
 										<button
@@ -194,7 +192,6 @@ export const QualityPanel = () => {
 											disabled={loading}
 											title="Отправить на доработку"
 										>
-											<span className="btn-icon">❌</span>
 											На доработку
 										</button>
 									</div>

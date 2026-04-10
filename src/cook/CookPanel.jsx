@@ -95,7 +95,6 @@ export const CookPanel = () => {
 										onClick={() => handleMarkReady(order.id)}
 										disabled={loading}
 									>
-										<span className="btn-icon">✅</span>
 										Заказ готов
 									</button>
 								</div>

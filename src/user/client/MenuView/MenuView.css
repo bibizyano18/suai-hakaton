@@ -163,6 +163,8 @@
 
     height: fit-content; /* корзина подстраивается под содержимое */
     align-self: start;   /* не растягивается по высоте */
+    position: sticky;
+    top: 50px;
 }
 
 /* заголовок корзины */
@@ -178,7 +180,6 @@
 }
 
 .cart h3::before {
-    content: "🛒";
     font-size: 28px;
     line-height: 1;
 }

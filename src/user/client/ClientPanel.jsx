@@ -134,7 +134,6 @@ export const ClientPanel = ({ user }) => {
 			{activeOrderNotification && currentView === 'menu' && (
 				<div className="active-order-notification">
 					<div className="notification-content">
-						<div className="notification-icon">🍽️</div>
 						<div className="notification-text">
 							<strong>У вас есть активный заказ</strong>
 							<p>Заказ {activeOrderNotification.user.name} — {getStatusText(activeOrderNotification.status)}</p>
